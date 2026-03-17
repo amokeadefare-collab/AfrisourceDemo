@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AfriSource — Connect. Source. Grow.</title>
+
+  <!-- ============================================================
+       GOOGLE FONTS
+       Using Playfair Display for the headline (distinctive serif)
+       and DM Sans for body/UI text (clean, readable).
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ============================================================
+       AMPLITUDE SCRIPT PLACEHOLDER
+       ↓ Paste your Amplitude snippet here when you're ready.
+       It will look something like:
+         <script src="https://cdn.amplitude.com/libs/..."></script>
+         <script>amplitude.init(669d9bbf9bfa97186e3e563836dd9e70);</script>
+  ============================================================ -->
+  <!-- PASTE YOUR AMPLITUDE SCRIPT BELOW THIS LINE --> 
+
+  <!-- END OF AMPLITUDE SCRIPT PLACEHOLDER -->
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES — edit these to change the whole colour scheme
+    ============================================================ */
+    :root {
+      --bg:        #FDFAF5;       /* warm off-white background      */
+      --surface:   #FFFFFF;       /* card / section background      */
+      --ink:       #1A1A18;       /* primary text colour            */
+      --muted:     #6B6B5E;       /* secondary / caption text       */
+      --accent:    #D4500A;       /* warm African-earth orange-red  */
+      --accent-dk: #B03E06;       /* darker shade for hover states  */
+      --border:    #E8E3D8;       /* subtle divider colour          */
+      --radius:    10px;          /* default border radius          */
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       LAYOUT HELPER — centres content with a max width
+    ============================================================ */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+       NAVIGATION BAR
+    ============================================================ */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    /* ============================================================
+       HERO SECTION — headline, subheading, CTA buttons
+    ============================================================ -->
+    */
+    .hero {
+      padding: 80px 0 64px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #FFF0E8;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 20px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    /* ============================================================
+       CTA BUTTONS
+    ============================================================ -->
+    */
+    .btn-group {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Primary button — solid accent colour */
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 14px 28px;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-dk);
+      border-color: var(--accent-dk);
+      transform: translateY(-1px);
+    }
+
+    /* Secondary button — outlined style */
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--ink);
+      padding: 14px 28px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       DIVIDER
+    ============================================================ -->
+    */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ============================================================
+       HOW IT WORKS SECTION
+    ============================================================ -->
+    */
+    .how-it-works {
+      padding: 72px 0;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    /* Steps grid — stacks vertically on mobile */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: #FFF0E8;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 50%;
+      margin-bottom: 14px;
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ -->
+    */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav>
+    <div class="container">
+      <a class="logo" href="#">Afri<span>Source</span></a>
+      <!-- You can add nav links here later, e.g. About, Login -->
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO SECTION
+       Contains: badge, headline, subheading, and CTA buttons
+  ============================================================ -->
+  <section class="hero">
+    <div class="container">
+
+      <span class="hero-badge">Product Discovery &amp; Sourcing Platform</span>
+
+      <h1>Connect Global Retailers with Africa's Best Suppliers</h1>
+
+      <p>
+        AfriSource makes it simple for international retailers to discover,
+        vet, and source quality products directly from African suppliers —
+        faster and with full transparency.
+      </p>
+
+      <!-- CTA BUTTONS
+           Each button calls a tracking function defined in the
+           Analytics section below. Edit the function names there
+           if you rename them.
+      -->
+      <div class="btn-group">
+
+        <!-- Button 1: Retailer Sign Up -->
+        <button class="btn-primary" onclick="trackSignUpClick()">
+          Sign Up as Retailer
+        </button>
+
+        <!-- Button 2: Supplier Demo Request -->
+        <button class="btn-secondary" onclick="trackDemoClick()">
+          Request Supplier Demo
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- ============================================================
+       HOW IT WORKS SECTION
+       3 simple steps — edit the text directly inside the <p> tags
+  ============================================================ -->
+  <section class="how-it-works">
+    <div class="container">
+
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Source smarter in three steps</h2>
+
+      <div class="steps">
+
+        <!-- Step 1 -->
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Create Your Account</h3>
+          <p>Sign up as a retailer or supplier in minutes. No paperwork, no gatekeeping.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Browse &amp; Discover</h3>
+          <p>Explore verified African suppliers across categories — from textiles to agro-products.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Connect &amp; Order</h3>
+          <p>Message suppliers directly, request samples, and place orders — all in one place.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 AfriSource. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       ANALYTICS — AMPLITUDE TRACKING
+       ↓ This is where all your button-click tracking lives.
+         Edit the event names (the strings in quotes) to match
+         whatever Amplitude event names you want to use.
+  ============================================================ -->
+  <script>
+
+    // ----------------------------------------------------------
+    // HELPER: safely call amplitude.track() only if the
+    // Amplitude SDK has been loaded. This prevents JS errors
+    // if you haven't pasted the Amplitude snippet yet.
+    // ----------------------------------------------------------
+    function safeTrack(eventName, properties) {
+      if (typeof amplitude !== 'undefined') {
+        amplitude.track(eventName, properties);
+      } else {
+        // During development: log to console instead
+        console.log('[Analytics] Event:', eventName, properties || '');
+      }
+    }
+
+    // ----------------------------------------------------------
+    // TRACKING: "Sign Up as Retailer" button clicked
+    // Change 'Sign Up Clicked' to your preferred event name
+    // ----------------------------------------------------------
+    function trackSignUpClick() {
+      safeTrack('Sign Up Clicked', {
+        button_label: 'Sign Up as Retailer',
+        location: 'hero'
+      });
+
+      // TODO: Replace the alert below with your actual sign-up
+      // redirect, e.g.: window.location.href = '/signup';
+      alert('Sign-up flow goes here!');
+    }
+
+    // ----------------------------------------------------------
+    // TRACKING: "Request Supplier Demo" button clicked
+    // Change 'Request Demo Clicked' to your preferred event name
+    // ----------------------------------------------------------
+    function trackDemoClick() {
+      safeTrack('Request Demo Clicked', {
+        button_label: 'Request Supplier Demo',
+        location: 'hero'
+      });
+
+      // TODO: Replace the alert below with your actual demo
+      // form or redirect, e.g.: window.location.href = '/demo';
+      alert('Demo request flow goes here!');
+    }
+
+  </script>
+  <!-- END OF ANALYTICS SECTION -->
+
+</body>
+</html>
